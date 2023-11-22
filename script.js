@@ -29,7 +29,7 @@ for (let i = 0; i < 2; i++) {
     const a = prompt('Один из последних просмотреных фильмов?', ''),
           b = prompt('На сколько вы его оцените?', '');
 
-    if (a !=null && b !== null && a != '' && b != '' && a.length < 50) {
+    if (a != null && b !== null && a != '' && b != '' && a.length < 50) {
         personalMovieDB.movies[a] = b;
         console.log('done');
     } else {
