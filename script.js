@@ -15,7 +15,7 @@ str.length - и получить её длину)
 
 'use strict';
 
-const numberOfFilms = +prompt('Сколько фильмов вы уже посмотрели?', '');
+const numberOfFilms = +prompt('Сколько фильмов вы уже посмотрели?', ''); /* "+" ставится из-за тоого что в поле ввода предполагается число */
 
 const personalMovieDB = {
     count: numberOfFilms,
@@ -30,14 +30,15 @@ for (let i = 0; i < 2; i++) {
           b = prompt('На сколько вы его оцените?', '');
 
     if (a != null && b !== null && a != '' && b != '' && a.length < 50) {
+        /* Если а не "отмена" и b не "отмена" и a не пустая строка и b не пустая строка и а < 50 символов */
         personalMovieDB.movies[a] = b;
         console.log('done');
     } else {
         console.log('error');
-        i--;
+        i--; /* откатывается действие назад на одну иттерацию */
     }
 
-}
+} 
 
 if (personalMovieDB.count < 10) {
     console.log('Просмотрено довольно мало фильмов');
@@ -50,3 +51,48 @@ if (personalMovieDB.count < 10) {
 }
 
 console.log(personalMovieDB);
+
+
+
+
+/* 4) Способ №1 */
+/* 
+let j = 0;
+
+while (j < 1) {
+    const a = prompt('Один из последних просмотреных фильмов?', ''),
+          b = prompt('На сколько вы его оцените?', '');
+
+    if (a != null && b !== null && a != '' && b != '' && a.length < 50) {
+        personalMovieDB.movies[a] = b;
+        console.log('done');
+    } else {
+        console.log('error');
+        j--;
+/*     }
+} */ 
+
+
+
+/* Способ №2 */
+
+/* let k = 0;
+
+do {
+        const a = prompt('Один из последних просмотреных фильмов?', ''),
+              b = prompt('На сколько вы его оцените?', '');
+
+    if (a != null && b !== null && a != '' && b != '' && a.length < 50) {
+        personalMovieDB.movies[a] = b;
+        console.log('done');
+    } else {
+        console.log('error');
+        k--;
+ /*    }
+}
+
+while (k < 2); */ 
+
+
+
+
